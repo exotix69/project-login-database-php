@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #25252b;
+}
+
+.container {
+    position: relative;
+    width: 750px;
+    height: 450px;
+    border: 2px solid #ff2770;
+    box-shadow: 0 0 25px #ff2770;
+    overflow: hidden;
+}
+
+.container .form-box {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    transition: all 1s ease;
+    transition: opacity 2s ease-in-out;
+    opacity: 1;
+    
+    
+}
+
+.form-box.login {
+    padding-left: 40px;
+    opacity: 1;
+    
+
+}
+
+.form-box.register {
+    padding-right: 40px;
+    right: -100%;
+   
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+    display: none;
+    
+    
+}
+
+.form-box h1 {
+    font-size: 32px;
+    text-align: center;
+}
+
+.form-box .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin-top: 25px;
+    transition: all 0.5s ease;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+    border-bottom: 2px solid #fff;
+    padding-right: 25px;
+    transition: all 0.5s ease;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #fff;
+    transition: all 0.5s ease;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+    top: -5px;
+    color: #ff2770;
+}
+
+.input-box i {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    font-size: 18px;
+    transform: translateY(-50%);
+    transition: all 0.5s ease;
+}
+
+.input-box input:focus ~ i,
+.input-box input:valid ~ i {
+    color: #ff2770;
+}
+
+.input-box input:focus,
+.input-box input:valid {
+    border-bottom: 2px solid #ff2770;
+}
+
+.btn {
+    position: relative;
+    width: 100%;
+    height: 45px;
+    border-radius: 48px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    border: 2px solid #ff2770;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    height: 300%;
+    width: 100%;
+    background: linear-gradient(#25252b, #ff2770, #25252b, #ff2770);
+    top: -100%;
+    left: 0;
+    z-index: -1;
+    transition: all 0.5s ease;
+}
+
+.btn:hover::before {
+    top: 0;
+}
+
+.regi-link {
+    font-size: 14px;
+    text-align: center;
+    margin: 20px 0 10px;
+    transition: all 0.5s ease;
+}
+
+.regi-link a {
+    color: #ff2770;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+
+.regi-link a:hover {
+    text-decoration: underline;
+}
+
+.info-content {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    padding-top: 100px;
+    padding-right: 10px;
+    flex-direction: column;
+    transition: all 0.5s ease;
+}
+
+.info-content.login {
+    right: 0;
+    text-align: center;
+    padding-left: 80px;
+}
+
+.info-content.register {
+    left: -100%;
+    
+    padding-left: 40px;
+}
+
+.info-content h2 {
+    text-transform: uppercase;
+    font-size: 36px;
+    transition: all 0.5s ease;
+}
+
+.info-content p {
+    font-size: 16px;
+    padding-top: 10px;
+    
+    font-weight: 400;
+    transition: all 0.5s ease;
+}
+
+.container .curved-shape {
+    position: absolute;
+    right: 0;
+    height: 650px;
+    width: 700px;
+    background: linear-gradient(45deg, #ff2770, #25224E);
+    transform: rotate(5deg) skewY(50deg);
+    transform-origin: bottom right;
+    transition: all 1.5s ease;
+}
+
+.container.active .curved-shape {
+    position: absolute;
+    left: -170px;
+    right: auto;
+    height: 850px;
+    width: 700px;
+    background: linear-gradient(-50deg, #ff2770, #25224E);
+    transform: rotate(-5deg) skewY(-50deg);
+    transform-origin: bottom left;
+    transition: all 1.5s ease;
+}
+
+.container.active .form-box.login {
+    display: none;
+    right: -100%;
+    opacity: 0;
+    
+    
+    
+}
+
+.container.active .form-box.register {
+    display: flex;
+    opacity: 1;
+   
+    right: 0;
+}
+
+.container.active .info-content.login {
+    right: -100%;
+}
+
+.container.active .info-content.register {
+    left: 0;
+}
